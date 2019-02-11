@@ -1,0 +1,23 @@
+.header {
+  width: 100%;
+  background-color: #fcc;
+}
+
+.header ul {
+  text-align: center;
+  background-color: #cfc;
+}
+
+.header ul li {
+  display: inline-block;
+  line-height: 32px;
+}
+
+.header ul li a {
+  padding: 5px 10px;
+}
+
+.header ul li a.active {
+  background-color: #ccc;
+}
+
