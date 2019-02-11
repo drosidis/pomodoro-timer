@@ -9,7 +9,7 @@ class StartStop extends Component {
   state = {
     loading: true,
     preferences: {
-      defaultInterval: 25*60,
+      defaultInterval: 25 * 60 * 1000,
       availableTasks: [],
       stopReasons: [],
     },

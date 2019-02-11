@@ -9,7 +9,7 @@ module.exports = function(app) {
       email: 'yannis@drosidis.com',
       hash: null,
       preferences: {
-        defaultInterval: 25 * 60,
+        defaultInterval: 25 * 60 * 1000,
         stopReasons: ['Done', 'Distracted', 'Cancel', 'Failed'],
         availableTasks: [
           {
