@@ -34,7 +34,7 @@ class StartStop extends Component {
   }
 
   tick() {
-    document.title = countdownTimeLeft(this.state.currentTask, this.state.defaultInterval);
+    document.title = countdownTimeLeft(this.state.currentTask, this.state.preferences.defaultInterval);
     this.forceUpdate();
   }
 
