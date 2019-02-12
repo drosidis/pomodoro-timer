@@ -11,7 +11,7 @@ module.exports = {
 
   mongo: {
     dbName: 'timerProd',
-    url: 'mongodb://localhost/timerProd',
+    url: 'mongodb://172.31.5.219/timerProd',
   },
 
 };
