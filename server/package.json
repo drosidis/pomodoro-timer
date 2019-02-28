@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/bin/www",
-    "dev": "nodemon --watch src ./src/bin/www | bunyan -o short",
+    "start": "nodemon --watch src ./src/bin/www | bunyan -o short",
+    "prod-start": "node ./src/bin/www",
     "lint": "node_modules/.bin/eslint ./src"
   },
   "keywords": [],

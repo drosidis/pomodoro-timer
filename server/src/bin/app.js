@@ -25,7 +25,7 @@ const app = express();
 require('../utils/dbUtils.js').connect(appConfig.mongo.url);
 
 // Public files
-app.use(express.static(path.join(__dirname, '..', '..', '..', 'client', 'build')));
+app.use(express.static(path.join(__dirname, '..', '..', 'build')));
 
 // Make the real IP available, even behind an nginx proxy
 app.use(function(req, res, next) {
