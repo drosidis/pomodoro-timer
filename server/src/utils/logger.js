@@ -1,5 +1,5 @@
 const bunyan = require('bunyan');
-const appConfig = require('../config/appConfig.js');
+const appConfig = require('../bin/appConfig');
 
 const logger = bunyan.createLogger({
   name: 'timerApp',

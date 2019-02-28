@@ -1,6 +1,16 @@
 #!/usr/bin/env node
 
 /**
+ * Load environment variables.
+ */
+require('dotenv').config();
+
+/**
+ * Use Bluebird.js promises.
+ */
+global.Promise = require('bluebird');
+
+/**
  * Module dependencies.
  */
 

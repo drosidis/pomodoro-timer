@@ -1,5 +1,4 @@
-const User = require('../model/user');
-const pick = require('lodash/pick')
+const pick = require('lodash/pick');
 
 module.exports = function(app) {
 

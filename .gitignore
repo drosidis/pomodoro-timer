@@ -3,6 +3,9 @@
 **/.pnp
 **/.pnp.js
 
+# environment vars
+server/.env
+
 # testing
 client/coverage
 

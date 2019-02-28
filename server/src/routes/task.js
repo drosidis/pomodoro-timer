@@ -10,7 +10,11 @@ module.exports = function(app) {
       name: req.body.name,
       tmStart: Date.now(),
     };
-    return User.findOneAndUpdate({ _id: req.user._id }, { $set: { currentTask  } }, { new: true })
+    return User.findOneAndUpdate(
+      { _id: req.user._id },
+      { $set: { currentTask } },
+      { new: true }
+    )
       .then(savedUser => savedUser.currentTask);
   });
 
@@ -21,9 +25,13 @@ module.exports = function(app) {
       ...req.user.currentTask.toObject(), // toObject() needed because user is loaded through mongoose
       stopReason: req.body.stopReason,
       duration: new Date() - req.user.currentTask.tmStart,
-    }
+    };
     return Task.create(currentTask)
-      .then(() => User.findOneAndUpdate({ _id: req.user._id }, { $set: { currentTask: null  } }, { new: true }))
+      .then(() => User.findOneAndUpdate(
+        { _id: req.user._id },
+        { $set: { currentTask: null } },
+        { new: true })
+      )
       .then(() => currentTask);
   });
 

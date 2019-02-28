@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     availableTasks: [{
       category: String,
       names: [String],
-    }]
+    }],
   },
   currentTask: Task.schema,
 }, { minimize: false });

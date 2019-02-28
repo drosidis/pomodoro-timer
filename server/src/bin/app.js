@@ -1,20 +1,18 @@
 const path = require('path');
-const Promise = require('bluebird');
 const VError = require('verror');
 const globby = require('globby');
 const express = require('express');
 const expressSession = require('express-session');
 const bodyParser = require('body-parser');
+const mongoSession = require('connect-mongodb-session');
 // const passport = require('passport');
 
-const LOG = require('../utils/logger.js');
-const promisifyExpress = require('../utils/promisifyExpress.js');
-const appConfig = require('../config/appConfig.js');
+const LOG = require('../utils/logger');
+const promisifyExpress = require('../utils/promisifyExpress');
+const appConfig = require('./appConfig');
 const User = require('../model/user');
 
 // require('./utils/passport.js');
-
-global.Promise = Promise;
 
 // Log all unhandled promise rejections
 process.on('unhandledRejection', function(reason, promise) {
@@ -42,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Configure sessions
 app.set('trust proxy', 'loopback'); // trust first proxy. Needed for encrypted cookies
-const MongoDBStore = require('connect-mongodb-session')(expressSession);
+const MongoDBStore = mongoSession(expressSession);
 
 const sessionStore = new MongoDBStore({ uri: appConfig.mongo.url, collection: 'sessions' });
 const sessionParser = expressSession({
@@ -78,7 +76,7 @@ app.putP = promisifyExpress.wrap(app, 'put');
 app.deleteP = promisifyExpress.wrap(app, 'delete');
 
 // Include all routes in directory
-const cwd = path.resolve(__dirname, '..')
+const cwd = path.resolve(__dirname, '..');
 globby
   .sync(['routes/**/*.js', '**/*.routes.js'], { cwd })
   // eslint-disable-next-line global-require, import/no-dynamic-require
